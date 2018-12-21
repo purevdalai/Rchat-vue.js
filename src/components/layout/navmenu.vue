@@ -34,14 +34,14 @@
                 <li class="nav-item" v-if="auth">
                     <router-link 
                         class="nav-link"
-                        :to="{ name: 'Chat'}" >
+                        :to="{ name: 'PollList'}" >
                         Санал асуулга
                     </router-link>
                 </li>
                 <li class="nav-item" v-if="auth">
                     <router-link 
                         class="nav-link"
-                        :to="{ name: 'Chat'}" >
+                        :to="{ name: 'Meeting'}" >
                         Хурал
                     </router-link>
                 </li>

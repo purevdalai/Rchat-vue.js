@@ -11,11 +11,15 @@ import ChatPage from './../pages/chat.vue'
 import Employee from './../pages/employee/index.vue'
 import EmployeeList from './../pages/employee/view.vue'
 
-import Article from './../pages/article/index.vue'
+import ArticlePage from './../pages/article/index.vue'
 import ArticleList from './../pages/article/view.vue'
 import ArticleShow from './../pages/article/show.vue'
 import ArticleCreate from './../pages/article/create.vue'
 
+import MeetingPage from './../pages/meeting/index.vue'
+
+import PollPage from './../pages/poll/index.vue'
+import PollList from './../pages/poll/view.vue'
 
 import MainLayout from './../components/layout/main.vue'
 
@@ -54,7 +58,7 @@ const router = new Router({
                     ]
                 }, {
                     path: 'article',
-                    component: Article,
+                    component: ArticlePage,
                     children: [
                         {
                             name: 'ArticleList',
@@ -69,6 +73,20 @@ const router = new Router({
                             name: 'ArticleCreate',
                             path: 'create',
                             component: ArticleCreate
+                        }
+                    ]
+                }, {
+                    path: 'meeting',
+                    name: 'Meeting',
+                    component: MeetingPage
+                }, {
+                    path: '/poll',
+                    component: PollPage,
+                    children: [
+                        {
+                            name: 'PollList',
+                            path: '',
+                            component: PollList
                         }
                     ]
                 }
