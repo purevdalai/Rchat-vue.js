@@ -10,5 +10,10 @@ export default {
     show(params) {
         const response = Api().get(apiPath.getArticle + params.id + '/show' )
         return response    
-    }
+    },
+
+    create(params) {
+        const response = Api().post(apiPath.postArticle, params)
+        return response
+    },
 }

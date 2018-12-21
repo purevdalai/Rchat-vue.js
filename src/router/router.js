@@ -14,6 +14,7 @@ import EmployeeList from './../pages/employee/view.vue'
 import Article from './../pages/article/index.vue'
 import ArticleList from './../pages/article/view.vue'
 import ArticleShow from './../pages/article/show.vue'
+import ArticleCreate from './../pages/article/create.vue'
 
 
 import MainLayout from './../components/layout/main.vue'
@@ -64,7 +65,11 @@ const router = new Router({
                             path: ':id/show',
                             component: ArticleShow,
                             props: true
-                        },
+                        }, {
+                            name: 'ArticleCreate',
+                            path: 'create',
+                            component: ArticleCreate
+                        }
                     ]
                 }
             ]

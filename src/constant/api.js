@@ -6,5 +6,6 @@ export default {
     getAuthUser: API_URL + 'user',
     getEmployee: API_URL + 'employee',
     getArticles: API_URL + 'article', 
-    getArticle: API_URL + 'article/'
+    getArticle: API_URL + 'article/',
+    postArticle: API_URL + 'article',
 }

@@ -29,11 +29,6 @@
         <div class="row mt-1">
             <span v-html="article.content"></span>
         </div>
-        <div class="row justify-content-center mt-3">
-            <div>
-                <img :src="article.image" class="img-fluid" />
-            </div>
-        </div>
     </div>
 </template>
 <script>

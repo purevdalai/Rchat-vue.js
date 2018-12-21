@@ -9,8 +9,8 @@
                 </h3>
             </div>
             <div class="content">
-                <span>
-                    {{ article.content.substring(0, 250) }} {{ article.content.length > 250 ? '...' : '' }}
+                <span v-html="article.content.substring(0, 250)">
+                    {{ article.content.length > 250 ? '...' : '' }}
                 </span>
             </div>
             <div class="created mt-3 float-left">

@@ -34,7 +34,7 @@ export default {
     methods: {
         createArticle: function() {
             this.$router.push({
-                name: 'createArticle'
+                name: 'ArticleCreate'
             });
         }
     }

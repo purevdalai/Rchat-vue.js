@@ -80,9 +80,6 @@ export default {
         }
     },
 
-    created: function() {
-    },
-
     computed: {
         ...mapState({
             auth: state => state.userStore.profile

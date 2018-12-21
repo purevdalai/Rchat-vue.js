@@ -8,7 +8,7 @@ export default {
         },
 
         fromNow(date) {
-            return moment(date).fromNow()
+            return moment.utc(date).fromNow()
         },
     }
 }
