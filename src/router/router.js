@@ -8,6 +8,9 @@ import NotFound from './../pages/error/notFound.vue'
 import HomePage from './../pages/home.vue'
 import ChatPage from './../pages/chat.vue'
 
+import Employee from './../pages/employee/index.vue'
+import EmployeeList from './../pages/employee/view.vue'
+
 import MainLayout from './../components/layout/main.vue'
 
 Vue.use(Router);
@@ -33,6 +36,16 @@ const router = new Router({
                     name: 'Chat',
                     path: 'chat',
                     component: ChatPage,
+                }, {
+                    path: 'employee',
+                    component: Employee,
+                    children: [
+                        {
+                            name: 'EmployeeList',
+                            path: '',
+                            component: EmployeeList
+                        }
+                    ]
                 }
             ]
         }, {

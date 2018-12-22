@@ -3,7 +3,7 @@
         <router-link 
             class="navbar-brand"
             :to="{ name: 'Home'}" >
-            Brand
+            МХТС intranet
         </router-link>
         <button class="navbar-toggler" 
             type="button" data-toggle="collapse" 
@@ -21,7 +21,35 @@
                     <router-link 
                         class="nav-link"
                         :to="{ name: 'Chat'}" >
-                        Chat
+                        Чат
+                    </router-link>
+                </li>
+                <li class="nav-item" v-if="auth">
+                    <router-link 
+                        class="nav-link"
+                        :to="{ name: 'Chat'}" >
+                        Нийтлэл
+                    </router-link>
+                </li>
+                <li class="nav-item" v-if="auth">
+                    <router-link 
+                        class="nav-link"
+                        :to="{ name: 'Chat'}" >
+                        Санал асуулга
+                    </router-link>
+                </li>
+                <li class="nav-item" v-if="auth">
+                    <router-link 
+                        class="nav-link"
+                        :to="{ name: 'Chat'}" >
+                        Хурал
+                    </router-link>
+                </li>
+                <li class="nav-item" v-if="auth">
+                    <router-link
+                        class="nav-link"
+                        :to="{ name: 'EmployeeList' }">
+                        Ажилчидийн мэдээлэл
                     </router-link>
                 </li>
             </ul>
