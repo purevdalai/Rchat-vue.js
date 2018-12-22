@@ -11,6 +11,11 @@ import ChatPage from './../pages/chat.vue'
 import Employee from './../pages/employee/index.vue'
 import EmployeeList from './../pages/employee/view.vue'
 
+import Article from './../pages/article/index.vue'
+import ArticleList from './../pages/article/view.vue'
+import ArticleShow from './../pages/article/show.vue'
+
+
 import MainLayout from './../components/layout/main.vue'
 
 Vue.use(Router);
@@ -45,6 +50,21 @@ const router = new Router({
                             path: '',
                             component: EmployeeList
                         }
+                    ]
+                }, {
+                    path: 'article',
+                    component: Article,
+                    children: [
+                        {
+                            name: 'ArticleList',
+                            path: '',
+                            component: ArticleList
+                        }, {
+                            name: 'ArticleShow',
+                            path: ':id/show',
+                            component: ArticleShow,
+                            props: true
+                        },
                     ]
                 }
             ]

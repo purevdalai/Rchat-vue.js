@@ -27,7 +27,7 @@
                 <li class="nav-item" v-if="auth">
                     <router-link 
                         class="nav-link"
-                        :to="{ name: 'Chat'}" >
+                        :to="{ name: 'ArticleList'}" >
                         Нийтлэл
                     </router-link>
                 </li>
@@ -54,7 +54,8 @@
                 </li>
             </ul>
             <ul v-if="auth" class="nav navbar-nav navbar-right mr-5">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown row">
+                    <img :src="auth.profile_img" class="img-fluid profile-img mr-1" />
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ username }} 
                     </a>
@@ -92,3 +93,10 @@ export default {
     }
 }
 </script>
+<style scoped>
+.profile-img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+</style>

@@ -5,4 +5,6 @@ export default {
     login: BASE_URL + 'oauth/token',
     getAuthUser: API_URL + 'user',
     getEmployee: API_URL + 'employee',
+    getArticles: API_URL + 'article', 
+    getArticle: API_URL + 'article/'
 }
