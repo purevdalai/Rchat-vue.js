@@ -8,4 +8,5 @@ export default {
     getArticles: API_URL + 'article', 
     getArticle: API_URL + 'article/',
     postArticle: API_URL + 'article',
+    postPoll: API_URL + 'poll',
 }

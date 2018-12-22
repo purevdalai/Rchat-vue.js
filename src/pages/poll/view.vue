@@ -5,20 +5,45 @@
                 Санал асуулгууд
             </span>
             <div class="float-right">
-                <button class="btn btn-success">
+                <button
+                    @click="createPoll" 
+                    class="btn btn-success">
                     <i class="fas fa-plus"></i>
                     Санал асуулга үүсгэх
                 </button>
             </div>
         </div>
         <div class="card-body">
-            Body
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">AA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
 <script>
 export default {
     name: 'PollPage',
+    
+    methods: {
+        createPoll: function() {
+            this.$router.push({
+                name: 'PollCreate'
+            });
+        }
+    }
 }
 </script>
 
