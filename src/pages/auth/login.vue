@@ -64,8 +64,8 @@ export default {
 
     data: function() {
         return {
-            email: 'admin@gmail.com',
-            password: 'secrethahahaz',
+            email: 'quitzon.elwin@example.net',
+            password: 'secret',
             error: null
         }
     },

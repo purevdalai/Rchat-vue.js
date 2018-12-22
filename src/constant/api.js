@@ -4,4 +4,5 @@ const API_URL  = BASE_URL + "api/"
 export default {
     login: BASE_URL + 'oauth/token',
     getAuthUser: API_URL + 'user',
+    getEmployee: API_URL + 'employee',
 }

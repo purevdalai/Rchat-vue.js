@@ -10,5 +10,10 @@ export default {
     getAuthUser() {
         const response = Api().get(apiPath.getAuthUser)
         return response
+    },
+
+    getEmployeeList() {
+        const response = Api().get(apiPath.getEmployee)
+        return response
     }
 }

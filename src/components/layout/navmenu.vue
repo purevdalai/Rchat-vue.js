@@ -56,7 +56,7 @@
             <ul v-if="auth" class="nav navbar-nav navbar-right mr-5">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ auth.name }}
+                        {{ username }} 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Profile</a>
@@ -85,7 +85,10 @@ export default {
     computed: {
         ...mapState({
             auth: state => state.userStore.profile
-        })
+        }),
+        username() {
+            return this.auth.first_name + ' ' + this.auth.last_name; 
+        }
     }
 }
 </script>
