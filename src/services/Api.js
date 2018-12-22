@@ -6,8 +6,8 @@ export default() => {
         'Content-Type': 'application/json'
     }
 
-    if ( localStorage.getItem('authUser') ) {
-        const tokenData = JSON.parse(localStorage.getItem('authUser'))
+    if ( localStorage.getItem('auth') ) {
+        const tokenData = JSON.parse(localStorage.getItem('auth'))
         if ( tokenData ) {
             apiHeaders = {
                 ...apiHeaders,
