@@ -17,7 +17,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item" v-if="auth">
                     <router-link 
                         class="nav-link"
                         :to="{ name: 'Chat'}" >
@@ -31,7 +31,7 @@
                         {{ auth.name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" @click="logout">Logout</a>
                     </div>
