@@ -21,6 +21,7 @@ import MeetingPage from './../pages/meeting/index.vue'
 import PollPage from './../pages/poll/index.vue'
 import PollList from './../pages/poll/view.vue'
 import PollCreate from './../pages/poll/create.vue'
+import PollShow from './../pages/poll/show.vue'
 
 import MainLayout from './../components/layout/main.vue'
 
@@ -92,6 +93,11 @@ const router = new Router({
                             name: 'PollCreate',
                             path: 'create',
                             component: PollCreate
+                        }, {
+                            name: 'PollShow',
+                            path: ':id/show',
+                            component: PollShow,
+                            props: true
                         }
                     ]
                 }

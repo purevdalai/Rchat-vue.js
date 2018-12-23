@@ -57,7 +57,7 @@
 </template>
 <script>
 import { required, email} from "vuelidate/lib/validators"
-import { grantType, clientId, clientSecret } from '../../constant/env.js'
+import { grantType, clientId, clientSecret } from '../../config/env.js'
 import UserService from '../../services/UserService.js'
 export default {
     name: 'LoginPage',
