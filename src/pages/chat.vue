@@ -45,7 +45,7 @@ export default {
     methods: {
         fetchData: function() {
             RoomService.getRooms().then(res => {
-                if ( res && res.status === 200 ) console.log(res)
+                if ( res && res.status === 200 ) console.log(res.data)
             })
             .catch(err => {
                 console.log('err when fetch rooms => ', err)
