@@ -12,4 +12,5 @@ export default {
     getPolls: API_URL + 'poll',
     getPoll: API_URL + 'poll/',
     postVote: API_URL + 'vote',
+    getRooms: API_URL + 'room',
 }
