@@ -9,8 +9,21 @@
                     <div class="card-body m-0 p-0">
                         <div class="table-responsive">
                             <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Сонголт
+                                        </th>
+                                        <th>
+                                            Хэн
+                                        </th>
+                                        <th>
+                                            Саналын тоо
+                                        </th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                    <tr v-for="(candidate, index) in item.candidates" :key="index">
+                                    <tr v-for="(candidate, index) in candidates" :key="index">
                                         <td>
                                             <div class="form-check">
                                                 <input 
@@ -23,7 +36,14 @@
                                             </div>
                                         </td>
                                         <td>
-                                            Санал алга
+                                            <div v-if="candidate.votes.length > 0">
+                                                <span class="vote" v-for="(vote, index) in candidate.votes" :key="index">
+                                                    {{ vote.user.first_name }} {{ vote.user.last_name }}
+                                                </span>
+                                            </div>
+                                            <div v-else>
+                                                Санал алга
+                                            </div>
                                         </td>
                                         <td>
                                             0 %
@@ -66,11 +86,19 @@ export default {
         return {
             item: null,
             result: null,
+            candidate_list: []
         }    
     },
 
     created: function() {
         this.fetchData();
+    },
+
+    computed: {
+        candidates: function() {
+            this.candidate_list = this.item.candidates
+            return this.candidate_list
+        }
     },
 
     methods: {

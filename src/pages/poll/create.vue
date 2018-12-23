@@ -1,40 +1,57 @@
 <template>
     <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <label> Асуулт </label>
-                <input 
-                    type="text" v-model="question" 
-                    class="form-control" 
-                    placeholder="Та асуултаа бичнэ үү...">
+        <div class="card">
+            <div class="card-header">
+                Санал асуулга үүсгэх
             </div>
-            <div class="col-12 row mt-3">
-                <div class="col-4 ml-0 p-0">
-                    <label class="float-left"> Сонголтууд </label>
+            <div class="card-body row justify-content-center">
+                <div class="col-12">
+                    <label> Асуулт </label>
+
+                    <div class="input-group mb-3">
+                        <input 
+                            type="text" v-model="question" 
+                            class="form-control" 
+                            placeholder="Та асуултаа бичнэ үү...">
+                        <div class="input-group-append">
+                            <span class="input-group-text">?</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-8 p-0 text-right">
+                <div class="col-12 row mt-3">
+                    <div class="col-4 ml-0 p-0">
+                        <label class="float-left"> Сонголтууд </label>
+                    </div>
+                    <div class="col-8 p-0 text-right">
+                        <button 
+                            @click="addCandidate"
+                            class="btn btn-success">
+                            <i class="fas fa-plus"></i>
+                            Сонголт нэмэх
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 p-0 row candidates">
+                    <div class="col-12 mt-3" v-for="(item, index) in candidates" :key="index">
+                        <candidate-form
+                            :index="index"
+                            @setVal="setVal($event)"
+                            @remove="remove($event)"
+                        ></candidate-form>
+                    </div>
+                </div>
+                <div class="col-12 mt-3 text-right">
                     <button 
-                        @click="addCandidate"
+                        @click="back" 
+                        class="btn btn-secondary mr-1">
+                        Буцах
+                    </button>
+                    <button 
+                        @click="createPoll" 
                         class="btn btn-success">
-                        <i class="fas fa-plus"></i>
-                        Сонголт нэмэх
+                        Санал асуулга үүсгэх
                     </button>
                 </div>
-            </div>
-            <div class="col-12 p-0 row candidates">
-                <div class="col-12 mt-3" v-for="(item, index) in candidates" :key="index">
-                    <candidate-form
-                        :index="index"
-                        @setVal="setVal($event)"
-                    ></candidate-form>
-                </div>
-            </div>
-            <div class="col-12 mt-3 text-right">
-                <button 
-                    @click="createPoll" 
-                    class="btn btn-success">
-                    Санал асуулга үүсгэх
-                </button>
             </div>
         </div>
     </div>
@@ -97,6 +114,18 @@ export default {
                 candidates: candidates
             }
             return params;
+        },
+
+        back: function() {
+            this.$router.push({
+                name: 'PollList'
+            })
+        },
+
+        remove: function(index) {
+            this.candidates = this.candidates.filter((item, i_index) => {
+                return index !== i_index
+            })
         }
     }
 }

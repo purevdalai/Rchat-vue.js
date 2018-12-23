@@ -10,7 +10,7 @@
                 @click="deleteCandidate"
                 class="btn btn-outline-danger" 
                 type="button">
-                &times;
+                <i class="fas fa-trash-alt"></i>
             </button>
         </div>
     </div>
@@ -44,7 +44,7 @@ export default {
 
     methods: {
         deleteCandidate: function() {
-            console.log('removed ' + this.index)
+            this.$emit('remove', this.index)
         }
     }
 }
