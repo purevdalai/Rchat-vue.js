@@ -104,6 +104,9 @@ export default {
                             this.$snotify.success(res.data.msg, {
                                 showProgressBar: false
                             })
+                            this.$router.push({
+                                name: 'PollList'
+                            })
                         }
                         else {
                             this.$snotify.danger(res.data.msg + ' ' + err, {

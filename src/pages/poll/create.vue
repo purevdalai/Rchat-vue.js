@@ -72,7 +72,14 @@ export default {
             if ( candidates.length >= 2 ) {
                 let params = this.getParams(candidates);
                 PollService.create(params).then(res => {
-                    if ( res && res.status === 200 )  console.log('result => ', res)
+                    if ( res && res.status === 201 ) {
+                        this.$snotify.success(res.data.response, {
+                            showProgressBar: false
+                        })
+                        this.$router.push({
+                            name: 'PollList'
+                        })
+                    }
                 })
                 .catch(err => {
                     console.log('err when create poll => ', err)

@@ -42,7 +42,7 @@
                             </td>
                             <td>
                                 <!-- fix -->
-                                <span> 0 </span>
+                                <span> {{ voteSize(item.votes) }} </span>
                             </td>
                             <td>
                                 <span class="badge badge-primary" v-if="item.closed == 0"> Нээлттэй </span>
@@ -101,6 +101,14 @@ export default {
                     id: item.id + ''
                 }
             })
+        },
+
+        voteSize: function( items ) {
+            let result = new Set()
+            items.map(item => {
+                result.add(item.user_id)
+            })
+            return result.size
         }
     }
 }
