@@ -1,10 +1,16 @@
 <template>
     <div class="row">
-        <div class="col-2">
-            <room-list></room-list>
+        <div class="col-2 p-0 m-0">
+            <room-list
+                v-if="room_list"
+                :items="room_list"
+            ></room-list>
         </div>
-        <div class="col-10">
+        <div class="col-8">
             <room-content></room-content>
+        </div>
+        <div class="col-2">
+            Room info
         </div>
     </div>
 </template>
@@ -23,7 +29,7 @@ export default {
 
     data: function() {
         return {
-            selectedRoom: null,
+            selectedRoom: 1,
             room_list: null,
         }
     },
@@ -45,7 +51,7 @@ export default {
     methods: {
         fetchData: function() {
             RoomService.getRooms().then(res => {
-                if ( res && res.status === 200 ) console.log(res.data)
+                if ( res && res.status === 200 ) this.room_list = res.data.rooms
             })
             .catch(err => {
                 console.log('err when fetch rooms => ', err)

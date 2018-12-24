@@ -1,3 +1,3 @@
 export const clientId      = 2
-export const clientSecret  = 'q1bc0ZADlv6PbDVy54MEKLHfvtO6p7sNFIGuZ0Pw'
+export const clientSecret  = '3kOAc3G4YX4Q0cOWRO7nsPrUMnoUMjxtZV3aSx6b'
 export const grantType     = 'password'

@@ -7,11 +7,11 @@ import router from './router/router.js'
 import moment from 'moment'
 import Vuelidate from 'vuelidate'
 import Snotify from 'vue-snotify'
-
-import DateHelper from './utils/date.js'
-
 import VueQuillEditor from 'vue-quill-editor'
 import fullCalendar from 'vue-fullcalendar'
+
+import DateHelper from './utils/date.js'
+import Validation from './utils/validation.js'
 
 // require styles
 import 'quill/dist/quill.core.css'
@@ -25,6 +25,7 @@ Vue.use(Snotify);
 Vue.component('full-calendar', fullCalendar)
 
 Vue.mixin(DateHelper);
+Vue.mixin(Validation);
 
 Vue.config.productionTip = false
 

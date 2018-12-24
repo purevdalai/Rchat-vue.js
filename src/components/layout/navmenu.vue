@@ -1,7 +1,7 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <router-link 
-            class="navbar-brand"
+            class="navbar-brand text-white"
             :to="{ name: 'Home'}" >
             МХТС intranet
         </router-link>
@@ -19,35 +19,35 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" v-if="auth">
                     <router-link 
-                        class="nav-link"
+                        class="nav-link text-white"
                         :to="{ name: 'Chat'}" >
                         Чат
                     </router-link>
                 </li>
                 <li class="nav-item" v-if="auth">
                     <router-link 
-                        class="nav-link"
+                        class="nav-link text-white"
                         :to="{ name: 'ArticleList'}" >
                         Нийтлэл
                     </router-link>
                 </li>
                 <li class="nav-item" v-if="auth">
                     <router-link 
-                        class="nav-link"
+                        class="nav-link text-white"
                         :to="{ name: 'PollList'}" >
                         Санал асуулга
                     </router-link>
                 </li>
                 <li class="nav-item" v-if="auth">
                     <router-link 
-                        class="nav-link"
+                        class="nav-link text-white"
                         :to="{ name: 'Meeting'}" >
                         Хурал
                     </router-link>
                 </li>
                 <li class="nav-item" v-if="auth">
                     <router-link
-                        class="nav-link"
+                        class="nav-link text-white"
                         :to="{ name: 'EmployeeList' }">
                         Ажилчидийн мэдээлэл
                     </router-link>
@@ -56,7 +56,7 @@
             <ul v-if="auth" class="nav navbar-nav navbar-right mr-5">
                 <li class="nav-item dropdown row">
                     <img :src="auth.profile_img" class="img-fluid profile-img mr-1" />
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ username }} 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
