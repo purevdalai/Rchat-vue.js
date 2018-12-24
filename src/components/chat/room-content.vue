@@ -57,13 +57,14 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 94vh;
+    max-height: 91vh;
+    min-height: 93vh;
 }
 
 .scroll {
-    height: auto;
     overflow-y: auto;
     overflow-x: hidden;
+    max-height: 91vh;
 }
 
 .scroll::-webkit-scrollbar {
