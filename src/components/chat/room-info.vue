@@ -1,7 +1,6 @@
 <template>
-
-        <!-- :class="room == user.code ? 'active' : ''" -->
     <div class="col-12 row list-item"  
+        :class="roomInfo.id == selectedRoom ? 'active' : ''"
         @click="viewChat">
         <div class="col-3">
             <img :src="roomInfo.image ? roomInfo.image : roomInfo.user.profile_img "
@@ -40,7 +39,8 @@ export default {
 
     computed: {
         ...mapState({
-            auth: state => state.userStore.profile
+            auth: state => state.userStore.profile,
+            selectedRoom: state => state.chatStore.selectedRoom
         }),
 
         username: function() {
@@ -51,14 +51,10 @@ export default {
 
     methods: {
         viewChat: function(user) {
-            // this.$router.push({
-            //     name: 'Home',
-            //     query: {
-            //         room: user.code
-            //     }
-            // });
-            // this.$emit('setRoom', user.code);
-            console.log(this.roomInfo.id)
+            this.$router.push({
+                name: 'Chat'
+            });
+            this.$store.dispatch('setSelectedRoom', this.roomInfo.id )
         },
 
         getRoomInfo() {
@@ -67,6 +63,7 @@ export default {
                 item = this.item
                 item.user = {}
                 item.user = this.item.users[0]
+                this.$store.dispatch('setSelectedRoom', item.id )
             }
             else if ( this.item.users.length == 2 ) {
                 this.item.users.map(user => {

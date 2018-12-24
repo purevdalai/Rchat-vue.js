@@ -1,16 +1,13 @@
 <template>
     <div class="row">
         <div class="col-2 p-0 m-0">
-            <room-list
-                v-if="room_list"
-                :items="room_list"
-            ></room-list>
+            <room-list></room-list>
         </div>
-        <div class="col-8">
+        <div class="col-8 p-0">
             <room-content></room-content>
         </div>
-        <div class="col-2">
-            Room info
+        <div class="col-2 p-0 m-0">
+            <room-detail></room-detail>
         </div>
     </div>
 </template>
@@ -18,13 +15,15 @@
 import { mapState } from 'vuex'
 import RoomList from './../components/chat/room-list.vue'
 import RoomContent from './../components/chat/room-content.vue'
-import RoomService from './../services/RoomService.js'
+import RoomDetail from './../components/chat/room-detail.vue'
+import ChatService from './../services/ChatService.js'
 export default {
     name: 'ChatPage',
 
     components: {
         'room-list': RoomList,
-        'room-content': RoomContent
+        'room-content': RoomContent,
+        'room-detail': RoomDetail,
     },
 
     data: function() {
@@ -34,7 +33,7 @@ export default {
         }
     },
 
-    created: function() {
+    mounted: function() {
         this.fetchData();
     },
 
@@ -50,8 +49,9 @@ export default {
 
     methods: {
         fetchData: function() {
-            RoomService.getRooms().then(res => {
-                if ( res && res.status === 200 ) this.room_list = res.data.rooms
+            ChatService.getRooms().then(res => {
+                if ( res && res.status === 200 ) 
+                    this.$store.dispatch('setRooms', res.data.rooms )
             })
             .catch(err => {
                 console.log('err when fetch rooms => ', err)

@@ -3,7 +3,7 @@
         <div class="row scroll rooms p-0 m-0">
             <room-info
                 :key="index"
-                v-for="(item, index) in items"
+                v-for="(item, index) in rooms"
                 :item="item" 
             ></room-info>
         </div>
@@ -17,7 +17,7 @@
             </div>
             <div class="col-6 p-0 m-0">
                 <button class="btn btn-color btn-block" @click="settings">
-                    <i class="fas fa-user-cog"></i>
+                    <i class="fas fa-cog"></i>
                     Тохиргоо
                 </button>
             </div>
@@ -25,6 +25,7 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import RoomInfo from './room-info.vue'
 export default {
     name: 'ChatRoomList',
@@ -33,11 +34,10 @@ export default {
         'room-info': RoomInfo
     },
 
-    props: {
-        items: {
-            type: Array,
-            required: true
-        },
+    computed: {
+        ...mapState({
+            rooms: state => state.chatStore.rooms
+        }),
     },
 
     methods: {
