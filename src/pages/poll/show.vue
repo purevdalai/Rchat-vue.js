@@ -38,7 +38,7 @@
                                         <td>
                                             <div v-if="candidate.votes.length > 0">
                                                 <span class="vote" v-for="(vote, index) in candidate.votes" :key="index">
-                                                    {{ vote.user.first_name }} {{ vote.user.last_name }}
+                                                    {{ vote.user.first_name }} {{ vote.user.last_name }},
                                                 </span>
                                             </div>
                                             <div v-else>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 p-0 mt-4 text-right" v-if="!isAuthUser(this.item.user)">
+                <div class="col-12 p-0 mt-4 text-right" v-if="!isAuthUser(this.item.user) && !isVote">
                     <button 
                         @click="back"
                         class="btn btn-secondary mr-1"> 
@@ -71,6 +71,7 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import PollService from './../../services/PollService.js'
 export default {
     name: 'PollShow',
@@ -95,9 +96,24 @@ export default {
     },
 
     computed: {
+        ...mapState({
+            auth: state => state.userStore.profile
+        }),
+
         candidates: function() {
             this.candidate_list = this.item.candidates
             return this.candidate_list
+        },
+
+        isVote: function() {
+            for ( let i = 0; i < this.candidates.length; i++ ) {
+                for ( let j = 0; j < this.candidates[i].votes.length; j++ ) {
+                    if ( this.candidates[i].votes[j].user.id == this.auth.id ) {
+                        return true
+                    }
+                }
+            }
+            return false
         }
     },
 
