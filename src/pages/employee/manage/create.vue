@@ -92,7 +92,7 @@
                                     id="option1" 
                                     name="role"
                                     v-model="role"
-                                    value="1">
+                                    value="2">
                                 <label class="form-check-label" for="option1">
                                     Ажилтан
                                 </label>
@@ -104,7 +104,7 @@
                                     id="option2"
                                     name="role"
                                     v-model="role"
-                                    value="2">
+                                    value="1">
                                 <label class="form-check-label" for="option2">
                                     Админ
                                 </label>
