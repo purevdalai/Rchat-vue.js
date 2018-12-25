@@ -63,7 +63,7 @@ export default {
                 }
                 ChatService.storeMessage(params).then(res => {
                     if ( res && res.status === 201 ) {
-                        this.$store.dispatch('addChatMessage', res.data.message )
+                        // this.$store.dispatch('addChatMessage', res.data.message )
                     }
                 })
                 .catch(err => {

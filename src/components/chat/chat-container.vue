@@ -23,6 +23,15 @@ export default {
             selectedRoom: state => state.chatStore.selectedRoom,
         }),
     },
+
+    sockets: {
+        message(data) {
+            let message = JSON.parse(data)
+            if ( this.room && this.room.id === message.room_id ) {
+                this.$store.dispatch('addChatMessage', message )
+            }
+        }
+    }
 }
 </script>
 <style scoped>
