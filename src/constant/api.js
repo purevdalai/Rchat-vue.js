@@ -14,5 +14,6 @@ export default {
     postVote: API_URL + 'vote',
     getRooms: API_URL + 'room',
     getRoom: API_URL + 'room/',
-    postMessage: API_URL + 'message'
+    postMessage: API_URL + 'message',
+    postRoom: API_URL + 'room',
 }

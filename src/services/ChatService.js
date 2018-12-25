@@ -15,5 +15,10 @@ export default {
     storeMessage(params) {
         const response = Api().post(apiPath.postMessage, params)
         return response
+    },
+
+    storeRoom(params) {
+        const response = Api().post(apiPath.postRoom, params)
+        return response
     }
 }

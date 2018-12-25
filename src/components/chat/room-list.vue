@@ -22,16 +22,19 @@
                 </button>
             </div>
         </div>
+        <room-form></room-form>
     </div>
 </template>
 <script>
 import { mapState } from 'vuex'
 import RoomInfo from './room-info.vue'
+import RoomForm from './../modal/chat/room-form.vue'
 export default {
     name: 'ChatRoomList',
     
     components: {
-        'room-info': RoomInfo
+        'room-info': RoomInfo,
+        'room-form': RoomForm,
     },
 
     computed: {
@@ -42,11 +45,11 @@ export default {
 
     methods: {
         createRoom: function() {
-
+            $('#room-form').modal();
         },
 
         settings: function() {
-
+            // $('#settings').modal();
         },
     },
 }

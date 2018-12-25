@@ -1,16 +1,16 @@
 <template>
     <div class="col-12 row list-item"  
-        :class="roomInfo.id == selectedRoom ? 'active' : ''"
+        :class="room.id == selectedRoom ? 'active' : ''"
         @click="viewChat">
         <div class="col-3">
-            <img :src="roomInfo.image ? roomInfo.image : roomInfo.user.profile_img "
+            <img :src="room.image ? room.image : room.user.profile_img "
                 class="img-fluid profile-img" />
         </div>
         <div class="col-9">
-            <span v-if="isAuthUser(roomInfo.user)">
+            <span v-if="room.user && isAuthUser(room.user)">
                 Миний чат
             </span>
-            <span v-else> {{ roomInfo.name ?  roomInfo.name : roomInfo.user.first_name + ' ' + roomInfo.user.last_name }} </span>
+            <span v-else> {{ room.name ?  room.name : room.user.first_name + ' ' + room.user.last_name }} </span>
         </div>
     </div>
 </template>
@@ -46,7 +46,11 @@ export default {
         username: function() {
             // if ( this.user.code == this.self.code ) return 'My Chat';
             // return this.user.first_name + ' ' + this.user.last_name;
-        }  
+        },
+
+        room: function() {
+            return this.roomInfo
+        }
     },
 
     methods: {
@@ -76,12 +80,6 @@ export default {
             }
             else if ( this.item.users.length > 2 ) {
                 item = this.item
-                if ( !item.name ) {
-                    item.name = 'Нэр алга'
-                }
-                if ( !item.image ) {
-                    item.image = 'https://lorempixel.com/300/300/?92993'
-                }
             }
             return item
         }
