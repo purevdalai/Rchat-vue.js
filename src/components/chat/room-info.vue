@@ -102,7 +102,7 @@ export default {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 0.9em;
-    max-height: 70px;
+    height: 60px;
 }
 
 .list-item:hover {

@@ -12,24 +12,28 @@
             </p>
         </div>
 
-        <div class="col-12 pr-4 pl-3 m-0 mb-5">
+        <div class="col-12 pr-4 pl-3 m-0 mb-5" v-if="room.type == 3">
             <h4>Админ</h4>
             <hr>
             <div
+                data-toggle="tooltip" data-placement="top" :title="user.first_name + ' '+ user.last_name" 
                 @click="view(user)" 
                 class="user" 
-                v-for="(user, index) in room.users" :key="index">
-                <img :src="user.profile_img" class="img-fluid img">
+                v-for="(user, index) in admins" :key="index">
+                <img
+                    :src="user.profile_img" 
+                    class="img-fluid img">
             </div>
         </div>
 
-        <div class="col-12 pr-4 pl-3 m-0 mb-5">
+        <div class="col-12 pr-4 pl-3 m-0 mb-5" v-if="users.length > 0">
             <h4>Гишүүд</h4>
             <hr>
             <div
+                data-toggle="tooltip" data-placement="top" :title="user.first_name + ' '+ user.last_name"
                 @click="view(user)" 
                 class="user" 
-                v-for="(user, index) in room.users" :key="index">
+                v-for="(user, index) in users" :key="index">
                 <img :src="user.profile_img" class="img-fluid img">
             </div>
         </div>
@@ -45,6 +49,20 @@ export default {
         ...mapState({
             room: state => state.chatStore.room,
         }),
+
+        admins: function() {
+            let users = this.room.users.filter(user => {
+                return user.pivot.admin == 1
+            })
+            return users;
+        },
+
+        users: function() {
+            let users = this.room.users.filter(user => {
+                return user.pivot.admin == 0
+            })
+            return users;
+        }
     },
 
     methods: {

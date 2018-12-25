@@ -16,4 +16,5 @@ export default {
     getRoom: API_URL + 'room/',
     postMessage: API_URL + 'message',
     postRoom: API_URL + 'room',
+    updateRoom: API_URL + 'room/',
 }

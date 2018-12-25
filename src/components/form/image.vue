@@ -2,7 +2,7 @@
     <div class="image">
         <img :src="image" class="img-fluid img" />
         <p class="mt-1 text-center"><strong>Зураг хуулах</strong></p>
-        <input type="file" @change="handleSelect" id="image" name="file" ref="file" required />
+        <input type="file" accept="image/*" @change="handleSelect" id="image" name="file" ref="file" required />
     </div>
 </template>
 <script>
@@ -17,19 +17,24 @@ export default {
 
     created: function() {
         this.$root.$on('resetImage', this.reset)
+        this.$root.$on('setImageSrc', this.setImageSrc)
     },
 
     methods: {
-        handleSelect: function() {
-            let file = document.getElementById('image').files[0]
-            let tmp_path =  URL.createObjectURL(file)
+        handleSelect: function(e) {
+            let file = e.target.files[0]
+            let tmp_path = window.URL.createObjectURL(file)
             this.image = tmp_path
             this.$emit('setImage', file)
         },
 
         reset: function() {
             this.image = 'https://articles-images.sftcdn.net/wp-content/uploads/sites/3/2016/01/wallpaper-for-facebook-profile-photo.jpg'
-        }
+        },
+
+        setImageSrc: function(src) {
+            this.image = src
+        },
     }
 }
 </script>

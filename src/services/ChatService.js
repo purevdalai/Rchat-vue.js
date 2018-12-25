@@ -20,5 +20,10 @@ export default {
     storeRoom(params) {
         const response = Api().post(apiPath.postRoom, params)
         return response
+    },
+
+    updateRoom(id, params) {
+        const response = Api().post(apiPath.updateRoom + id, params)
+        return response
     }
 }

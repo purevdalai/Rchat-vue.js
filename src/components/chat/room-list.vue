@@ -9,37 +9,52 @@
         </div>
 
         <div class="row m-0">
-            <div class="col-6 p-0 m-0">
+            <div class="col p-0 m-0">
                 <button class="btn btn-color btn-block" @click="createRoom">
                     <i class="fas fa-folder-plus"></i>
                     Өрөө үүсгэх
                 </button>
             </div>
-            <div class="col-6 p-0 m-0">
-                <button class="btn btn-color btn-block" @click="settings">
-                    <i class="fas fa-cog"></i>
-                    Тохиргоо
-                </button>
+            
+            <div class="col-6 btn-group dropup p-0 m-0" v-if="room && room.type == 3">
+                    <button type="button" class="btn btn-color btn-block dropdown-toggle pb-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-cog"></i>
+                        Өрөөний тохиргоо
+                    </button>
+                    <div class="dropdown-menu">
+                        <button class="btn btn-block btn-dropup text-left" @click="addUsers">
+                            <i class="fas fa-user"></i>
+                            Гишүүн зохион байгуулах
+                        </button>
+                        <button class="btn btn-block btn-dropup text-left" @click="settings">
+                            <i class="fas fa-edit"></i>
+                            Өрөөний мэдээлэл шинэчлэх
+                        </button>
+                    </div>
             </div>
         </div>
         <room-form></room-form>
+        <room-settings></room-settings>
     </div>
 </template>
 <script>
 import { mapState } from 'vuex'
 import RoomInfo from './room-info.vue'
 import RoomForm from './../modal/chat/room-form.vue'
+import RoomSettings from './../modal/chat/room-settings.vue'
 export default {
     name: 'ChatRoomList',
     
     components: {
         'room-info': RoomInfo,
         'room-form': RoomForm,
+        'room-settings': RoomSettings,
     },
 
     computed: {
         ...mapState({
-            rooms: state => state.chatStore.rooms
+            rooms: state => state.chatStore.rooms,
+            room: state => state.chatStore.room
         }),
     },
 
@@ -49,8 +64,12 @@ export default {
         },
 
         settings: function() {
-            // $('#settings').modal();
+            $('#room-settings').modal();
         },
+
+        addUsers: function() {
+
+        }
     },
 }
 </script>
@@ -61,6 +80,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     min-height: 94vh;
+    max-height: 94vh;
     background: #2c3e50;
 }
 
@@ -81,7 +101,7 @@ button {
 .scroll {
     overflow-y: auto;
     overflow-x: hidden;
-    /* height: 91vh; */
+    max-height: 94vh;
 }
 
 .scroll::-webkit-scrollbar {
@@ -91,6 +111,15 @@ button {
 
 .scroll::-webkit-scrollbar-thumb {
   background-color: #243140;
+}
+
+.btn-dropup {
+    background: #ffffff;
+}
+
+.btn-dropup:hover {
+    background-color: #243140;
+    color: #ffffff;
 }
 
 @media screen and (max-width: 735px) {

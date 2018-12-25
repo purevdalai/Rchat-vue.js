@@ -36,6 +36,6 @@ export default {
 </script>
 <style scoped>
 .messages {
-    background: #E6EAEA;
+    /* background: #E6EAEA; */
 }
 </style>

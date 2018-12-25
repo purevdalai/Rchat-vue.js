@@ -151,7 +151,7 @@ export default {
 
                 ChatService.storeRoom(params).then(res => {
                     if ( res && res.status === 201 ) {
-                        console.log(res.data)
+                        this.close()
                     }
                 })
                 .catch(err => {

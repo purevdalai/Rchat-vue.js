@@ -38,13 +38,21 @@
                         Санал асуулга
                     </router-link>
                 </li>
-                <li class="nav-item" v-if="auth">
+                <!-- <li class="nav-item" v-if="auth">
                     <router-link 
                         class="nav-link text-white"
                         :to="{ name: 'Meeting'}" >
                         Хурал
                     </router-link>
+                </li> -->
+                <li class="nav-item" v-if="auth && auth.role_id == 1">
+                    <router-link
+                        class="nav-link text-white"
+                        :to="{ name: 'EmployeeList' }">
+                        Ажилчид
+                    </router-link>
                 </li>
+
                 <li class="nav-item" v-if="auth">
                     <router-link
                         class="nav-link text-white"
@@ -60,9 +68,15 @@
                         {{ username }} 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">
+                            <i class="far fa-user-circle"></i>
+                            Хувийн мэдээлэл
+                        </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" @click="logout">Logout</a>
+                        <a class="dropdown-item" href="#" @click="logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Системээс гарах
+                        </a>
                     </div>
                 </li>
             </ul>
