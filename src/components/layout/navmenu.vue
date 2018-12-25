@@ -3,7 +3,7 @@
         <router-link 
             class="navbar-brand text-white"
             :to="{ name: 'Home'}" >
-            МХТС intranet
+            Е-Оффис
         </router-link>
         <button class="navbar-toggler" 
             type="button" data-toggle="collapse" 
@@ -48,7 +48,7 @@
                 <li class="nav-item" v-if="auth && auth.role_id == 1">
                     <router-link
                         class="nav-link text-white"
-                        :to="{ name: 'EmployeeList' }">
+                        :to="{ name: 'ManageEmployeeList' }">
                         Ажилчид
                     </router-link>
                 </li>

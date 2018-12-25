@@ -17,4 +17,5 @@ export default {
     postMessage: API_URL + 'message',
     postRoom: API_URL + 'room',
     updateRoom: API_URL + 'room/',
+    storeEmployee: API_URL + 'employee',
 }

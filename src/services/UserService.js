@@ -15,5 +15,10 @@ export default {
     getEmployeeList() {
         const response = Api().get(apiPath.getEmployee)
         return response
+    },
+
+    storeEmployee(params) {
+        const response = Api().post(apiPath.storeEmployee, params)
+        return response
     }
 }

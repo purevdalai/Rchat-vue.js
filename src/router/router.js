@@ -10,6 +10,10 @@ import ChatPage from './../pages/chat.vue'
 
 import Employee from './../pages/employee/index.vue'
 import EmployeeList from './../pages/employee/view.vue'
+import EmployeeCreate from './../pages/employee/manage/create.vue'
+import EmployeeEdit from './../pages/employee/manage/edit.vue'
+import EmployeeShow from './../pages/employee/manage/show.vue'
+import ManageEmployeeList from './../pages/employee/manage/list.vue'
 
 import ArticlePage from './../pages/article/index.vue'
 import ArticleList from './../pages/article/view.vue'
@@ -56,6 +60,24 @@ const router = new Router({
                             name: 'EmployeeList',
                             path: '',
                             component: EmployeeList
+                        }, {
+                            name: 'ManageEmployeeList',
+                            path: 'list',
+                            component: ManageEmployeeList
+                        }, {
+                            name: 'EmployeeCreate',
+                            path: 'create',
+                            component: EmployeeCreate
+                        }, {
+                            name: 'EmployeeEdit',
+                            path: ':id/edit',
+                            component: EmployeeEdit,
+                            props: true
+                        }, {
+                            name: 'EmployeeShow',
+                            path: ':id/show',
+                            component: EmployeeShow,
+                            props: true
                         }
                     ]
                 }, {
