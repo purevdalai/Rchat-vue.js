@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 p-0 mt-4 text-right">
+                <div class="col-12 p-0 mt-4 text-right" v-if="!isAuthUser(this.item.user)">
                     <button 
                         @click="back"
                         class="btn btn-secondary mr-1"> 
