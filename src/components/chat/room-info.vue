@@ -2,7 +2,7 @@
     <div class="col-12 row list-item"  
         :class="room.id == selectedRoom ? 'active' : ''"
         @click="viewChat">
-        <div class="col-3">
+        <div class="col-3 p-0 m-0">
             <img :src="room.image ? room.image : room.user.profile_img "
                 class="img-fluid profile-img" />
         </div>
@@ -89,7 +89,7 @@ export default {
 <style scoped>
 .profile-img {
     height: 100%;
-    width: 100%;
+    width: 50px;
     border-radius: 50%;
     -moz-transition: 0.3s border ease;
     -o-transition: 0.3s border ease;

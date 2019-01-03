@@ -78,14 +78,14 @@ export default {
 
 <style scoped>
 .detail {
-    max-height: 94vh;
-    min-height: 94vh;
+    max-height: 91vh;
+    min-height: 91vh;
     background: #2c3e50;
     color: #ffffff;
 }
 
 .scroll {
-    max-height: 94vh;
+    max-height: 91vh;
     overflow-y: auto;
     overflow-x: hidden;
 }

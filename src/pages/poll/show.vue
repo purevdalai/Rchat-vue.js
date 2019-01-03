@@ -145,17 +145,17 @@ export default {
                 PollService.vote(params).then(res => {
                     if (res && res.status === 201 ) {
                         if ( res.data.status ) {
-                            this.$snotify.success(res.data.msg, {
-                                showProgressBar: false
-                            })
+                            // this.$snotify.success(res.data.msg, {
+                            //     showProgressBar: false
+                            // })
                             this.$router.push({
                                 name: 'PollList'
                             })
                         }
                         else {
-                            this.$snotify.danger(res.data.msg + ' ' + err, {
-                                showProgressBar: false
-                            })
+                            // this.$snotify.danger(res.data.msg + ' ' + err, {
+                            //     showProgressBar: false
+                            // })
                         }
                     }
                 })

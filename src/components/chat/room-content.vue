@@ -58,7 +58,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     max-height: 91vh;
-    min-height: 93vh;
+    min-height: 91vh;
 }
 
 .scroll {

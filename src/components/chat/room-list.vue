@@ -16,8 +16,11 @@
                 </button>
             </div>
             
-            <div class="col-6 btn-group dropup p-0 m-0" v-if="room && room.type == 3">
-                    <button type="button" class="btn btn-color btn-block dropdown-toggle pb-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="col btn-group dropup p-0 m-0" v-if="room && room.type == 3 && isAdmin">
+                    <button 
+                        type="button"
+                        class="btn btn-color btn-block text-center dropdown-toggle pb-2" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-cog"></i>
                         Өрөөний тохиргоо
                     </button>
@@ -54,8 +57,16 @@ export default {
     computed: {
         ...mapState({
             rooms: state => state.chatStore.rooms,
-            room: state => state.chatStore.room
+            room: state => state.chatStore.room,
+            auth: state => state.userStore.profile,
         }),
+
+        isAdmin: function() {
+            let users = this.room.users.filter(user => {
+                return user.pivot.admin == 1 && user.id == this.auth.id
+            })
+            return users.length > 0
+        }
     },
 
     methods: {
@@ -79,8 +90,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 94vh;
-    max-height: 94vh;
+    min-height: 91vh;
+    max-height: 91vh;
     background: #2c3e50;
 }
 
@@ -101,7 +112,7 @@ button {
 .scroll {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 94vh;
+    max-height: 91vh;
 }
 
 .scroll::-webkit-scrollbar {

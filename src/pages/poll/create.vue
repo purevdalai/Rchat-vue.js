@@ -90,9 +90,9 @@ export default {
                 let params = this.getParams(candidates);
                 PollService.create(params).then(res => {
                     if ( res && res.status === 201 ) {
-                        this.$snotify.success(res.data.response, {
-                            showProgressBar: false
-                        })
+                        // this.$snotify.success(res.data.response, {
+                        //     showProgressBar: false
+                        // })
                         this.$router.push({
                             name: 'PollList'
                         })

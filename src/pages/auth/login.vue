@@ -64,7 +64,7 @@ export default {
 
     data: function() {
         return {
-            email: 'quitzon.elwin@example.net',
+            email: 'chelsea45@example.org',
             password: 'secret',
             error: null
         }

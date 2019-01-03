@@ -89,18 +89,18 @@ export default {
                 ArticleService.create(formData).then(res => {
                     if ( res && res.status === 201 ) {
                         if ( res.data.status ) {
-                            this.$snotify.success(res.data.response, {
-                                showProgressBar: false
-                            })
+                            // this.$snotify.success(res.data.response, {
+                            //     showProgressBar: false
+                            // })
 
                             this.$router.push({
                                 name: 'ArticleList'
                             })
                         }
                         else {
-                            this.$snotify.success(res.data.response, {
-                                showProgressBar: false
-                            })
+                            // this.$snotify.success(res.data.response, {
+                            //     showProgressBar: false
+                            // })
                         }
                     }
                 })

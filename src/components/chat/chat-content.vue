@@ -3,7 +3,7 @@
         <div class="col-auto">
             <img :src="item.user.profile_img" class="img-fluid profile_img mt-3" />
         </div>
-        <div class="col-11 content">
+        <div class="col-10 content">
             <div>
                 {{ getUsername(item.user) }}
                 <div class="float-right">
