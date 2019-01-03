@@ -7,7 +7,7 @@
                 class="img-fluid profile-img" />
         </div>
         <div class="col-9">
-            <span v-if="room.user && isAuthUser(room.user)">
+            <span v-if="room.user && isAuthUser(room.user) && room.users.length == 1">
                 Миний чат
             </span>
             <span v-else> {{ room.name ?  room.name : room.user.first_name + ' ' + room.user.last_name }} </span>

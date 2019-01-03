@@ -82,6 +82,19 @@ export default {
 
         }
     },
+
+
+    sockets: {
+        message(data) {
+            let message = JSON.parse(data)
+            if ( message && message.code == 'NEW_ROOM' ) {
+                this.$store.dispatch('addRoom', message )
+            }
+            else if ( message && message.code == 'UPDATE_ROOM' ) {
+                this.$store.dispatch('updateRoom', message )
+            }
+        }
+    }
 }
 </script>
 <style scoped>

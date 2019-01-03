@@ -25,5 +25,15 @@ export default {
     updateRoom(id, params) {
         const response = Api().post(apiPath.updateRoom + id, params)
         return response
+    },
+
+    storeFiles(params) {
+        const response = Api().post(apiPath.postFiles, params)
+        return response
+    },
+
+    downloadFile(params) {
+        const response = Api().post(apiPath.downloadFile, params)
+        return response
     }
 }

@@ -3,14 +3,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body m-0 p-0 settings">
-                    <div class="float-left">
+                    <div class="float-left attach-files">
                         <button 
-                            @click="attach"
                             class="btn btn-attach m-0 text-color">
-                            <i 
+                            <i
                                 class="fas fa-paperclip">
                             </i>
                         </button>
+                        <input 
+                            @change="attach"
+                            type="file" 
+                            name="attachFiles[]" 
+                            class="files" 
+                            multiple />
                     </div>
                     <div class="float-right">
                         <i 
@@ -43,7 +48,6 @@ export default {
     data: function() {
         return {
             message: null,
-            files: []
         }
     },
 
@@ -73,9 +77,27 @@ export default {
             }
         },
 
-        attach: function() {
-            console.log('attach files');
-        }
+        attach: function(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+
+            let params = new FormData
+            params.append('room_id', this.selectedRoom)
+
+            for (let i = 0; i < files.length; i++) {
+                params.append('files[]', files[i])
+            }
+
+            ChatService.storeFiles(params).then(res => {
+                if ( res && res.status === 201 ) {
+                    // console.log(res.data)
+                }
+            })
+            .catch(err => {
+                console.log('err when post files!', err)
+            })
+        },
     }
 }
 </script>
@@ -101,5 +123,20 @@ textarea {
 
 .text-color {
     color: #2c3e50;
+}
+
+.attach-files {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.attach-files .files {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }
 </style>

@@ -3,20 +3,29 @@
         <div class="col-auto">
             <img :src="item.user.profile_img" class="img-fluid profile_img mt-3" />
         </div>
-        <div class="col-10 content">
-            <div>
+        <div class="col-11 content row">
+            <div class="col-12">
                 {{ getUsername(item.user) }}
                 <div class="float-right">
                     {{ fromNow(item.created_at) }}
                 </div>
             </div>
-            <p>
+            <p class="col-12">
                 {{ item.content }}
             </p>
+            <div class="col-12 row" v-for="(file, index) in item.files" :key="index">
+                <a target="_blank" :href="file.path" class="col-auto float-left mt-2">
+                    {{ file.name }}
+                </a>
+                <!-- <div class="col-1 float-left">
+                    <button @click="download(file)" class="btn btn-outline-success border-0">Татах</button>
+                </div> -->
+            </div>
         </div>
     </div>
 </template>
 <script>
+import ChatService from './../../services/ChatService.js'
 export default {
     name: 'SingleContent',
 
@@ -30,6 +39,16 @@ export default {
     methods: {
         getUsername: function(user) {
             return user.first_name + ' ' + user.last_name;
+        },
+
+        download: function(file) {
+            // let params = {
+            //     name: file.name,
+            //     message_id: file.message_id
+            // }
+            // ChatService.downloadFile(params).then(res => {
+            //     console.log(res)
+            // })
         }
     }
 }
@@ -54,5 +73,9 @@ export default {
     border-radius: 10px;
     padding: 10px;
     min-height: 25px;
+}
+
+a {
+    color: #ffffff;
 }
 </style>

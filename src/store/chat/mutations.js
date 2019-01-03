@@ -12,9 +12,22 @@ export default {
     },
 
     ADD_ROOM_MESSAGE(state, messageObj) {
-        if (state.room && state.room.messages) {
+        if (state.room && state.room.messages && messageObj) {
             state.room.messages.unshift(messageObj);
             state.room.messages.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+        }
+    },
+
+    ADD_ROOM(state, roomObj) {
+        state.rooms.push(roomObj);
+    },
+
+    UPDATE_ROOM(state, roomObj) {
+        for ( let i = 0; i < state.rooms.length; i++  ) {
+            if ( state.rooms[i].id == roomObj.id ) {
+                state.rooms[i] = roomObj;
+                break;
+            }
         }
     }
 }

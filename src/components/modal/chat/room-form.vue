@@ -46,8 +46,9 @@
                         </div>
                     </div>
                     <div class="userList scroll row ml-3 mr-3">
-                        <div class="selectUser form-check form-check-inline col-12 mb-1" :key="index" 
-                            v-if="!isAuthUser(user)" v-for="(user, index) in filterData">
+                        <div class="selectUser form-check form-check-inline col-12 mb-1"
+                            v-if="!isAuthUser(user)" :key="index" 
+                            v-for="(user, index) in filterData">
                             <input 
                                 v-model="checkedUsers"
                                 class="form-check-input" 

@@ -14,4 +14,12 @@ export default {
     addChatMessage: ({commit}, messageObj) => {
         commit('ADD_ROOM_MESSAGE', messageObj);
     }, 
+
+    addRoom: ({commit}, roomObj) => {
+        commit('ADD_ROOM', roomObj)
+    }, 
+
+    updateRoom: ({commit}, roomObj) => {
+        commit('UPDATE_ROOM', roomObj)
+    }, 
 }
