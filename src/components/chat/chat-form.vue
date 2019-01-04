@@ -48,7 +48,6 @@ export default {
     data: function() {
         return {
             message: null,
-            files: []
         }
     },
 
@@ -79,22 +78,26 @@ export default {
         },
 
         attach: function(e) {
-            let files = e.target.files
-            if ( files.length > 0 ) {
-                let params = {
-                    files: files,
-                    room_id: this.selectedRoom
-                }
-                ChatService.storeFiles(params).then(res => {
-                    if ( res && res.status === 201 ) {
-                        console.log(res.data)
-                    }
-                })
-                .catch(err => {
-                    console.log('err when post files!', err)
-                })
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+
+            let params = new FormData
+            params.append('room_id', this.selectedRoom)
+
+            for (let i = 0; i < files.length; i++) {
+                params.append('files[]', files[i])
             }
-        }
+
+            ChatService.storeFiles(params).then(res => {
+                if ( res && res.status === 201 ) {
+                    // console.log(res.data)
+                }
+            })
+            .catch(err => {
+                console.log('err when post files!', err)
+            })
+        },
     }
 }
 </script>

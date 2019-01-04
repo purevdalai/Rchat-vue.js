@@ -19,4 +19,5 @@ export default {
     postRoom: API_URL + 'room',
     updateRoom: API_URL + 'room/',
     storeEmployee: API_URL + 'employee',
+    downloadFile: API_URL + 'download',
 }

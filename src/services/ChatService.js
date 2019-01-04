@@ -31,4 +31,9 @@ export default {
         const response = Api().post(apiPath.postFiles, params)
         return response
     },
+
+    downloadFile(params) {
+        const response = Api().post(apiPath.downloadFile, params)
+        return response
+    }
 }

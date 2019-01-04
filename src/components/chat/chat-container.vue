@@ -27,8 +27,8 @@ export default {
     sockets: {
         message(data) {
             let message = JSON.parse(data)
-            // console.log('system => ', message)
-            if ( this.room && this.room.id === message.room_id && message.code == 'NEW_MESSAGE' ) {
+            // console.log('system => ', message, this.room.id)
+            if ( this.room && parseInt(this.room.id) === parseInt(message.room_id) && message.code == 'NEW_MESSAGE' ) {
                 this.$store.dispatch('addChatMessage', message )
             }
         }
