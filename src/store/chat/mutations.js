@@ -12,9 +12,13 @@ export default {
     },
 
     ADD_ROOM_MESSAGE(state, messageObj) {
-        if (state.room && state.room.messages) {
+        if (state.room && state.room.messages && messageObj) {
             state.room.messages.unshift(messageObj);
             state.room.messages.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
         }
+    },
+
+    ADD_ROOM(state, roomObj) {
+        state.rooms.push(roomObj);
     }
 }

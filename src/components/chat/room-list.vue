@@ -71,6 +71,16 @@ export default {
 
         }
     },
+
+
+    sockets: {
+        message(data) {
+            let message = JSON.parse(data)
+            if ( message && message.code == 'NEW_ROOM' ) {
+                this.$store.dispatch('addRoom', message )
+            }
+        }
+    }
 }
 </script>
 <style scoped>
