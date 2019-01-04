@@ -18,4 +18,8 @@ export default {
     addRoom: ({commit}, roomObj) => {
         commit('ADD_ROOM', roomObj)
     }, 
+
+    updateRoom: ({commit}, roomObj) => {
+        commit('UPDATE_ROOM', roomObj)
+    }, 
 }

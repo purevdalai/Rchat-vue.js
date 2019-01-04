@@ -15,6 +15,7 @@ export default {
     getRooms: API_URL + 'room',
     getRoom: API_URL + 'room/',
     postMessage: API_URL + 'message',
+    postFiles: API_URL + 'files',
     postRoom: API_URL + 'room',
     updateRoom: API_URL + 'room/',
     storeEmployee: API_URL + 'employee',

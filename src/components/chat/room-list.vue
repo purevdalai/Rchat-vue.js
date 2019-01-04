@@ -79,6 +79,9 @@ export default {
             if ( message && message.code == 'NEW_ROOM' ) {
                 this.$store.dispatch('addRoom', message )
             }
+            else if ( message && message.code == 'UPDATE_ROOM' ) {
+                this.$store.dispatch('updateRoom', message )
+            }
         }
     }
 }

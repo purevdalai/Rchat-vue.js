@@ -20,5 +20,14 @@ export default {
 
     ADD_ROOM(state, roomObj) {
         state.rooms.push(roomObj);
+    },
+
+    UPDATE_ROOM(state, roomObj) {
+        for ( let i = 0; i < state.rooms.length; i++  ) {
+            if ( state.rooms[i].id == roomObj.id ) {
+                state.rooms[i] = roomObj;
+                break;
+            }
+        }
     }
 }
